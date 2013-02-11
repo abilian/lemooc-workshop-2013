@@ -1,3 +1,3 @@
 push:
-	rsync -e ssh -avz ./ dedi:lemooc.com/
+	rsync -e ssh -avz --exclude feedback.csv ./ dedi:lemooc.com/
 

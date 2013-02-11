@@ -204,9 +204,27 @@ def inject_publications():
 
 @app.route('/')
 def home():
-  template = "home.html"
-  page = {'title': 'CNLL'}
-  return render_template(template, page=page)
+  accepted_languages = request.headers.get("Accept-Language", '').lower()
+  accepted_languages = accepted_languages.split(';')[0]
+  accepted_languages = accepted_languages.split(',')
+
+  for language in accepted_languages:
+    if language.startswith('fr'):
+      return redirect(url_for('home_fr'))
+
+  return redirect(url_for('home_en'))
+
+
+@app.route('/en')
+def home_en():
+  template = "home_en.html"
+  return render_template(template)
+
+
+@app.route('/fr')
+def home_fr():
+  template = "home_fr.html"
+  return render_template(template)
 
 
 @app.route('/feedback', methods=['POST'])
