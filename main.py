@@ -30,18 +30,17 @@ DEBUG = False
 ASSETS_DEBUG = True
 FLATPAGES_AUTO_RELOAD = False
 
-BASE_URL = 'http://www.cnll.fr'
+BASE_URL = 'http://workshop.lemooc.com/'
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'pages'
 BABEL_DEFAULT_LOCALE = 'fr'
 
-SENTRY_DSN = "http://8d5ddf6476d64c0b8c931ae0b0f7c763:f93c49bc6c4f4895a826568f059eb731@sentry.abilian.com/3"
 
 # App configuration
 FEED_MAX_LINKS = 25
 SECTION_MAX_LINKS = 12
 
-SECRET_KEY = "oqiuwbexouqoweuoiquweobuqowueboi"
+SECRET_KEY = "CHANGEME"
 
 REDIRECTS = {
 }
