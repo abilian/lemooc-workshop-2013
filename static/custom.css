@@ -424,7 +424,6 @@ ul#slider a .level {
 
 .carousel-inner div.item {
     width: 100%;
-    border-bottom: 1px solid #0092b7;
     padding-bottom: 40px;
     height: 50px;
 }
@@ -432,7 +431,7 @@ ul#slider a .level {
 .sponsor-scroll-item {
     cursor: pointer;
     float: left;
-    width: 18%;
+    width: 16%;
     height: 96px;
     background: none center center no-repeat;
     background-size: 100px auto

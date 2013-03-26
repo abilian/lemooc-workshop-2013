@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Le MOOC 2013 - Paris - Mai 2013</title>
+
+
+  <link href="/static/images/favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="/static/bootstrap.css" type="text/css"
+      media="screen">
+  <link rel="stylesheet" href="/static/custom.css" type="text/css"
+      media="screen">
+</head>
+
+<body>
+
+<header class="main">
+
+  <div class="navbg">
+    <div class="container" style="height: 50px">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <a class="btn btn-navbar" data-toggle="collapse"
+              data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+          </a>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/fr/" title="About">A propos</a>
+              </li>
+              <li>
+                <a href="/fr/lieu/" title="Venue">Lieu</a>
+              </li>
+              <li>
+                <a href="/fr/programme/" title="Schedule">Programme</a>
+              </li>
+              <li class="">
+                <a href="/fr/#news" title="News">News</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</header>
+
+<div class="banner">
+  <div class="row">
+    <div class="white">
+      <div class="container">
+        <div style="margin-left: auto; margin-right: auto">
+          <h1 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+            <a href="/"><img src="/static/images/logo.png" width="400"></a></h1>
+        </div>
+      </div>
+
+      <div class="grey">
+        <div class="container">
+          <div class="row" style="height: 40px">
+            <div class="span12">
+              <h4 style="margin-top: 20px; margin-bottom: 20px;">How "Online",
+                "Social" and "Open" are revolutionizing
+                education</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row red">
+        <div class="container">
+          <div class="span12">
+            <h3 style="margin-top: 15px;"><span>Date: </span> 30 mai 2013</h3>
+
+            <h3 style="margin-bottom: 15px;"><a href="/fr/lieu/"><span>Lieu: </span> Paris
+              (Université Paris Diderot)</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="span12">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-block alert-{{ category }}">
+            <a class="close" data-dismiss="alert">&times;</a>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block main %}{% endblock %}
+
+    <hr>
+
+    <h3>Organisateurs / Sponsors</h3>
+
+    <div id="sponsorslider" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+
+        <div class="item active" style="margin: auto;">
+
+          <a href="http://www.gt-logiciel-libre.org/" title="GTLL Systematic">
+            <div class="sponsor-scroll-item"
+                style="background-image: url('/static/sponsor_logos/gtll.png')"></div>
+          </a>
+
+          <a href="http://www.inria.fr/" title="Inria">
+            <div class="sponsor-scroll-item"
+                style="background-image: url('/static/sponsor_logos/inria.jpg')"></div>
+          </a>
+
+          <a href="http://www.irill.org/" title="IRILL">
+            <div class="sponsor-scroll-item"
+                style="background-image: url('/static/sponsor_logos/irill.jpg')"></div>
+          </a>
+
+          <a href="http://www.upmc.fr/" title="UPMC">
+            <div class="sponsor-scroll-item"
+                style="background-image: url('/static/sponsor_logos/upmc.png')"></div>
+          </a>
+
+          <a href="http://www.univ-paris-diderot.fr/"
+              title="Université Paris 7">
+            <div class="sponsor-scroll-item"
+                style="background-image: url('/static/sponsor_logos/paris7.jpg')"></div>
+          </a>
+
+          <a href="http://www.abilian.com/" title="Abilian">
+            <div class="sponsor-scroll-item"
+                style="background-image: url('/static/sponsor_logos/abilian.png')"></div>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+  </div>
+
+</div>
+
+<div style="text-align: center">
+  <footer>
+    <p>
+      Des questions ? Des commentaires ? Des idées ? Contactez <a
+        href="mailto:workshop@lemooc.com">workshop@lemooc.com</a>.
+    </p>
+  </footer>
+</div>
+
+
+<script async="" src="/static/ga.js"></script>
+<script src="/static/jquery_002.js"></script>
+<script src="/static/ajax_csrf.js"></script>
+<script src="/static/jquery.js"></script>
+<script src="/static/set.js"></script>
+
+<script src="/static/bootstrap.js"></script>
+<script src="/static/theme.js"></script>
+
+
+<script type="text/javascript">
+  // Stupid fix until bootstrap fixes mobile nav menus
+  $('body').on('touchstart.dropdown', '.dropdown-menu', function(e) {
+    e.stopPropagation();
+  });
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32718163-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+
+  $(function() {
+    var slider = $("#sponsorslider").carousel({interval: 7000});
+    slider.bind("slid", function() {
+      var index = $(this).find(".active").index();
+      $(this).find("#slider-nav a").removeClass("activeSlide").eq(index).addClass("activeSlide");
+    });
+    $("#slider-nav a").click(function(e) {
+      var index = $(this).index();
+      slider.carousel(index);
+      e.preventDefault();
+    });
+
+    var retina = window.devicePixelRatio > 1.5 ? true : false;
+    if (retina) {
+      $("div.sponsor-scroll-item").each(function() {
+        var retinaimage = $(this).data("background-2x");
+        $(this).css("background-image", "url(" + retinaimage + ")");
+        // preload image
+        $('<img/>')[0].src = retinaimage;
+      })
+    }
+    ;
+  });
+</script>
+
+
+</body>
+</html>

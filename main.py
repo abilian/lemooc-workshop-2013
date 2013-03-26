@@ -214,16 +214,32 @@ def home():
   return redirect(url_for('home_en'))
 
 
-@app.route('/en')
+@app.route('/en/')
 def home_en():
   template = "home_en.html"
   return render_template(template)
 
 
-@app.route('/fr')
+@app.route('/fr/')
 def home_fr():
   template = "home_fr.html"
   return render_template(template)
+
+
+@app.route('/fr/<path:path>/')
+def page(path=""):
+  for orig, dest in REDIRECTS.items():
+    if path.startswith(orig):
+      return redirect(dest, 301)
+
+  page = pages.get('fr/%s/index' % path)
+  if not page:
+    page = pages.get('fr/' + path)
+  if not page:
+    abort(404)
+  print page
+  template = page.meta.get('template', '_page_fr.html')
+  return render_template(template, page=page)
 
 
 @app.route('/feedback', methods=['POST'])
@@ -243,21 +259,6 @@ def feedback():
     csvfile.close()
 
   return redirect(url_for("home"))
-
-
-@app.route('/<path:path>/')
-def page(path=""):
-  for orig, dest in REDIRECTS.items():
-    if path.startswith(orig):
-      return redirect(dest, 301)
-
-  page = pages.get(path + "/index")
-  if not page:
-    page = pages.get(path)
-  if not page:
-    abort(404)
-  template = page.meta.get('template', '_page.html')
-  return render_template(template, page=page)
 
 
 @app.route('/news/')
