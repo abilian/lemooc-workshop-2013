@@ -251,11 +251,13 @@ def feedback():
   if not email or not name or not organisation:
     flash("Some data were missing", "error")
   else:
-    flash("Thank you for your feedback", "sucess")
+    flash("Thank you for your feedback", "success")
 
     csvfile = open("feedback.csv", "a+")
     writer = csv.writer(csvfile)
-    writer.writerow([email, name, organisation, datetime.datetime.utcnow()])
+    row = [email, name, organisation, str(datetime.datetime.utcnow())]
+    row = [ x.encode("utf8") for x in row ]
+    writer.writerow(row)
     csvfile.close()
 
   return redirect(url_for("home"))
