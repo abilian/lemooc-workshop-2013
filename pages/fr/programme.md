@@ -6,31 +6,33 @@ Le workshop sera organisé en 4 parties couvrant ainsi les différentes dimensio
 
 Nous sommes encore en attente de confirmation d'un certain nombre d'intervenants sollicités.
 
-Voici les grandes lines des interventions prévues.
+Voici les grandes lines des interventions prévues (sous réserve de modifications).
 
 <hr>
 
-#### Matin
+#### 30 mai 2013, Matin
 
 9h: accueil / café
 
 9h30: **keynote d'ouverture**
 
-- Speaker TBC
+- Un représentant du Ministère de l'Enseignement Supérieur et de la Recherche
 
-10h: **aspects économiques**
+10h: **aspects économiques et industriels**
 
-- Speakers: TBD/TBC
+- Mathieu Nebra ([Simple IT / Le Site du Zero](http://www.simple-it.fr/))
+- Autres speakers: TBD/TBC
 
-11h30: **aspects pédagogiques et sociaux**
+11h00: **aspects pédagogiques et sociaux**
 
 - Christian Queinec ([Université Paris 6](http://www.upmc.fr/))
 - François Taddei ([CRI](http://www.cri-paris.org/))
+- Mathieu Cisel ([ENS Cachan](http://www.stef.ens-cachan.fr/))
 - Table ronde (speakers TBD/TBC)
 
 13h: pause déjeuner
 
-#### Après-midi
+#### 30 mai 2013, Après-midi
 
 14h: **aspects technologiques**
 
@@ -40,6 +42,7 @@ Voici les grandes lines des interventions prévues.
 15h30: **retours d'expérience**
 
 - Jean-Paul Smets ([Nexedi](http://www.nexedi.com/)): un MOOC sur les ERP avec ERP5
+- Remi Bachelet ([EC Lille](http://rb.ec-lille.fr/)): retour sur le MOOC "gestion de projet"
 - Autres speakers: TBD/TBC
 
 17h: **table ronde de clôture**
