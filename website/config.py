@@ -4,7 +4,7 @@ FLATPAGES_AUTO_RELOAD = False
 
 BASE_URL = 'http://workshop.lemooc.com/'
 FLATPAGES_EXTENSION = '.md'
-FLATPAGES_ROOT = 'content'
+FLATPAGES_ROOT = '../pages'
 BABEL_DEFAULT_LOCALE = 'fr'
 
 

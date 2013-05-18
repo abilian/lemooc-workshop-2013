@@ -6,7 +6,7 @@ from flask import current_app as app
 from flask.ext.flatpages import FlatPages, Page
 
 
-pages = FlatPages()
+flatpages = FlatPages()
 
 
 #
@@ -37,7 +37,7 @@ def get_pages(offset=None, limit=None):
   """
   Retrieves pages matching passed criterias.
   """
-  articles = list(pages)
+  articles = list(flatpages)
   # assign section value if none was provided in the metas
   for article in articles:
     if not article.meta.get('section'):
@@ -60,7 +60,7 @@ def get_pages(offset=None, limit=None):
 
 
 def get_posts(offset=None, limit=None):
-  posts = list(pages)
+  posts = list(flatpages)
 
   posts = [ article for article in posts
             if article.path.startswith("news") ]
@@ -88,7 +88,7 @@ def get_posts(offset=None, limit=None):
 
 
 def get_publications():
-  publications = [ page for page in list(pages)
+  publications = [ page for page in list(flatpages)
                    if page.path.startswith("publications") ]
 
   publications = sorted(publications, reverse=True,
@@ -115,4 +115,4 @@ def slugify(text, delim=u'-'):
 
 
 def setup(app):
-  pages.init_app(app)
+  flatpages.init_app(app)

@@ -1,5 +1,10 @@
+.PHONY: run test push clan
+
+test:
+	py.test
+
 run:
-	./website/main.py serve
+	./manage.py serve
 
 push:
 	touch main.py
@@ -7,4 +12,5 @@ push:
 
 clean:
 	rm -f *.pyc */*.pyc */*/*.pyc
+	rm -rf *.egg *.egg-info
 

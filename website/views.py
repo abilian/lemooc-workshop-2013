@@ -9,8 +9,9 @@ from PIL import Image
 from flask import request, redirect, url_for, render_template, flash, abort, \
     make_response
 
-from .main import app, BASE_URL, REDIRECTS, FEED_MAX_LINKS
-from .pages import get_posts, get_publications, pages, get_pages
+from .application import app
+from .config import BASE_URL, REDIRECTS, FEED_MAX_LINKS
+from .pages import get_posts, get_publications, flatpages, get_pages
 
 
 #
@@ -75,15 +76,13 @@ def home_fr():
 
 @app.route('/fr/<path:path>/')
 def page(path=""):
-  pages = app.extensions['flatpages']
-
   for orig, dest in REDIRECTS.items():
     if path.startswith(orig):
       return redirect(dest, 301)
 
-  page = pages.get('fr/%s/index' % path)
+  page = flatpages.get('fr/%s/index' % path)
   if not page:
-    page = pages.get('fr/' + path)
+    page = flatpages.get('fr/' + path)
   if not page:
     abort(404)
   print page
@@ -143,7 +142,7 @@ def news():
 
 @app.route('/news/<path:slug>/')
 def post(slug):
-  page = pages.get("news/" + slug)
+  page = flatpages.get("news/" + slug)
   if not page:
     return redirect(url_for("news"))
 

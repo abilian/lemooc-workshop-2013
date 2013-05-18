@@ -1,5 +1,7 @@
 .idea
 .DS_Store
+.tox
+
 feedback.csv
 
 *.pyc

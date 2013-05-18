@@ -1,46 +1,13 @@
-#!/usr/bin/env python
-# coding=utf-8
+#!/usr/bin/env python2.7
 
-import codecs
-import os
-import datetime
-
-from argh import *
-
-from flask import Flask
-from flask.ext.frozen import Freezer
-from flask.ext.markdown import Markdown
-from flask.ext.assets import Environment as AssetManager
-from flask.ext.babel import Babel
-#from raven.contrib.flask import Sentry
-
-
-from .pages import slugify, setup as setup_pages
-from .models import setup as setup_models
-from .config import *
-
-
-###############################################################################
-# Create app and services
-
-app = Flask(__name__)
-app.config.from_object(__name__)
-
-setup_pages(app)
-setup_models(app)
-
-freezer = Freezer(app)
-markdown_manager = Markdown(app)
-asset_manager = AssetManager(app)
-babel = Babel(app)
-#sentry = Sentry(app)
+from argh import ArghParser
+from website.application import setup_app, app
 
 
 ###############################################################################
 # Commands
 
 # Not used (yet?)
-@command
 def post(section, title=None, filename=None):
   """ Create a new empty post.
   """
@@ -68,10 +35,10 @@ def post(section, title=None, filename=None):
     raise CommandError(error)
 
 
-@command
 def serve(server='0.0.0.0', port=7100):
   """ Serves this site.
   """
+  setup_app(app)
   debug = app.config['DEBUG'] = app.debug = True
   #asset_manager.config['ASSETS_DEBUG'] = debug
   app.run(host=server, port=port, debug=debug)
