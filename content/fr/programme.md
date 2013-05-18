@@ -21,6 +21,7 @@ Voici les grandes lines des interventions prévues (sous réserve de modificatio
 10h: **aspects économiques et industriels**
 
 - Mathieu Nebra ([Simple IT / Le Site du Zero](http://www.simple-it.fr/))
+- Lancelot Pecquet ([Will Strategy](http://willstrategy.com/)): les modèles économiques des MOOC.
 - Autres speakers: TBD/TBC
 
 11h00: **aspects pédagogiques et sociaux**
@@ -30,19 +31,21 @@ Voici les grandes lines des interventions prévues (sous réserve de modificatio
 - Mathieu Cisel ([ENS Cachan](http://www.stef.ens-cachan.fr/))
 - Table ronde (speakers TBD/TBC)
 
-13h: pause déjeuner
+12h30: pause déjeuner
 
 #### 30 mai 2013, Après-midi
 
 14h: **aspects technologiques**
 
-- Alberto Abella ([UNED](https://unedcoma.es/)): OpenMOOC at UNED
+- Stefane Fermigier ([Abilian](http://www.abilian.com/)): un MOOC c'est un réseau social.
+- Alberto Abella ([UNED](https://unedcoma.es/)): OpenMOOC at UNED.
 - Autres speakers: TBD/TBC
 
 15h30: **retours d'expérience**
 
 - Jean-Paul Smets ([Nexedi](http://www.nexedi.com/)): un MOOC sur les ERP avec ERP5
 - Remi Bachelet ([EC Lille](http://rb.ec-lille.fr/)): retour sur le MOOC "gestion de projet"
+- Hubert Kadima ([EISTI](http://eisti.eu/)): Le MOOC du projet IDEFI PLACIS (Plateforme Collaborative en Ingénierie Système)
 - Autres speakers: TBD/TBC
 
 17h: **table ronde de clôture**
