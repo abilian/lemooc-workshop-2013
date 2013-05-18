@@ -92,6 +92,7 @@ def page(path=""):
 
 @app.route('/feedback', methods=['POST'])
 def feedback():
+
   email = request.form.get('email')
   name = request.form.get('name')
   organisation = request.form.get('organisation')

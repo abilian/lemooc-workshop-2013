@@ -8,7 +8,7 @@ requires = deps.parse_requirements(['deps.txt'])
 depend_links = deps.parse_dependency_links(['deps_txt'])
 
 setuptools.setup(
-  name='Le MOOC 2013',
+  name='lemooc2013',
   version='0.1dev',
   author='Stefane Fermigier',
   author_email='sf@fermigier.com',

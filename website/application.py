@@ -33,5 +33,3 @@ def setup_app(app):
   asset_manager = AssetManager(app)
   babel = Babel(app)
   #sentry = Sentry(app)
-
-
