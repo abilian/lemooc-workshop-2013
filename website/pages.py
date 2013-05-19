@@ -3,10 +3,9 @@ from unicodedata import normalize
 import datetime
 
 from flask import current_app as app
-from flask.ext.flatpages import FlatPages, Page
+from flask.ext.flatpages import Page
 
-
-flatpages = FlatPages()
+from .extensions import flatpages
 
 
 #
@@ -112,7 +111,3 @@ def slugify(text, delim=u'-'):
     if word:
       result.append(word)
   return unicode(delim.join(result))
-
-
-def setup(app):
-  flatpages.init_app(app)

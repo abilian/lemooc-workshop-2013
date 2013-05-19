@@ -26,5 +26,5 @@ setuptools.setup(
     'License :: OSI Approved :: BSD License',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
-    ],
+  ],
 )

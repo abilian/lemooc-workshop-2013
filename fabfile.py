@@ -71,8 +71,8 @@ def pack():
 def backup():
   with cd(env.app_root):
     now = time.strftime("%Y%m%d-%H%M%S")
-    run("cp feedback.csv ~/backup/lemooc-feedback-%s.csv" % now)
-    run("cp data/yaka.db ~/backup/lemooc-db-%s.db" % now)
+    run("cp feedback.csv ~/backup/lemooc-feedback-{}.csv".format(now))
+    run("cp data/lemooc.db ~/backup/lemooc-db-{}.db".format(now))
 
 
 @task
@@ -81,21 +81,30 @@ def deploy():
   dist = local('python setup.py --fullname', capture=True).strip()
 
   # upload the source tarball to the temporary folder on the server
-  put('dist/%s.tar.gz' % dist, '/tmp/%s.tar.gz' % dist)
+  put('dist/{}.tar.gz'.format(dist), '/tmp/{}.tar.gz'.format(dist))
 
   # create a place where we can unzip the tarball, then enter
   # that directory and unzip it
   with cd("/tmp"):
-    run('tar xzf /tmp/%s.tar.gz' % dist)
+    run('rm -rf {}/*'.format(dist))
+    run('tar xzf /tmp/{}.tar.gz'.format(dist))
     with cd(dist):
       run("tox")
 
   run("cp -r /tmp/{}/* {}".format(dist, env.app_root))
 
   install_deps()
+  with cd(env.app_root):
+    with virtualenv(env.app_env):
+      run("py.test")
+
+  with cd(env.app_root):
+    with virtualenv(env.app_env):
+      run("./manage.py create_db")
+
   refresh_uwsgi()
 
-  run('rm -f /tmp/%s.tar.gz' % dist)
+  run('rm -f /tmp/{}.tar.gz'.format(dist))
 
 
 @task(default=True)

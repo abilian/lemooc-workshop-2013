@@ -11,8 +11,7 @@ from flask.ext.bootstrap import Bootstrap
 #from raven.contrib.flask import Sentry
 
 from . import config
-from .models import setup as setup_models
-from .pages import setup as setup_pages
+from .extensions import setup as setup_extensions
 from .admin import setup as setup_admin
 
 
@@ -25,8 +24,10 @@ app = Flask(__name__, static_path='/static')
 from . import views
 
 
-def setup_app(app):
+def setup_app(app, additional_config=None):
   app.config.from_object(config)
+  if additional_config:
+    app.config.from_object(additional_config)
 
   freezer = Freezer(app)
   markdown_manager = Markdown(app)
@@ -35,9 +36,7 @@ def setup_app(app):
   bootstrap = Bootstrap(app)
   admin = Admin(app)
 
-
-  setup_pages(app)
-  setup_models(app)
+  setup_extensions(app)
   setup_admin(app)
 
   #sentry = Sentry(app)

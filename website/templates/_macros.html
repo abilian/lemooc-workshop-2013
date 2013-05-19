@@ -5,7 +5,11 @@
 
     <div class="media-body">
       <b>{{ reg.first_name }} {{ reg.last_name }}</b><br>
-      {{ reg.organization }}
+      {% if reg.url %}
+        <a href="{{ reg.url }}">{{ reg.organization }}</a>
+      {% else %}
+        {{ reg.organization }}
+      {% endif %}
     </div>
   </div>
 {% endmacro %}

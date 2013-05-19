@@ -2,8 +2,12 @@
 .DS_Store
 .tox
 
+data
+dist
+
 feedback.csv
 local_config.py
 
 *.pyc
+*.egg-info
 

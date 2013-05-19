@@ -1,0 +1,10 @@
+{% extends 'admin/master.html' %}
+
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block body %}
+  <h2>Login</h2>
+
+  {{ wtf.quick_form(form) }}
+
+{% endblock %}
