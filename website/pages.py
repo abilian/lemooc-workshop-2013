@@ -63,7 +63,7 @@ def get_posts(offset=None, limit=None):
   posts = list(flatpages)
 
   posts = [ article for article in posts
-            if article.path.startswith("news") ]
+            if article.path.startswith("fr/news") ]
 
   for post in posts:
     if not 'image' in post.meta:

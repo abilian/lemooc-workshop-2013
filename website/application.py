@@ -2,15 +2,18 @@
 # coding=utf-8
 
 from flask import Flask
+from flask.ext.admin import Admin
 from flask.ext.frozen import Freezer
 from flask.ext.markdown import Markdown
 from flask.ext.assets import Environment as AssetManager
 from flask.ext.babel import Babel
+from flask.ext.bootstrap import Bootstrap
 #from raven.contrib.flask import Sentry
 
 from . import config
 from .models import setup as setup_models
 from .pages import setup as setup_pages
+from .admin import setup as setup_admin
 
 
 ###############################################################################
@@ -25,11 +28,16 @@ from . import views
 def setup_app(app):
   app.config.from_object(config)
 
-  setup_pages(app)
-  setup_models(app)
-
   freezer = Freezer(app)
   markdown_manager = Markdown(app)
   asset_manager = AssetManager(app)
   babel = Babel(app)
+  bootstrap = Bootstrap(app)
+  admin = Admin(app)
+
+
+  setup_pages(app)
+  setup_models(app)
+  setup_admin(app)
+
   #sentry = Sentry(app)

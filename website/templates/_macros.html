@@ -1,0 +1,11 @@
+{% macro m_participant(reg) %}
+  <div class="span4 media">
+    <img class="img-circle media-object pull-left"
+        src="{{ reg.gravatar_url() }}">
+
+    <div class="media-body">
+      <b>{{ reg.first_name }} {{ reg.last_name }}</b><br>
+      {{ reg.organization }}
+    </div>
+  </div>
+{% endmacro %}

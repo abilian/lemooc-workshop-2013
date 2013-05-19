@@ -4,7 +4,7 @@
   {% filter markdown %}
 
 <a name="about"></a>
-### Le MOOC, c'est quoi ?
+## Le MOOC, c'est quoi ?
 
 Au cours des derniers mois, nous avons vu émerger un nouvel acronyme, MOOC,
 conduisant par ailleurs à de mauvais jeux de mots. Mais, qu'est ce qu'un
@@ -58,42 +58,19 @@ de l'Enseignement Supérieur et de la Recherche, organise ce workshop le
 Des **retours d'expériences** à plus ou moins grande échelle seront aussi
 l'objet de débats et réflexions.
 
-Vous pouvez consulter dès à présent le
-[programme des interventions](/fr/programme/), qui est cependant encore en construction.
+### Etapes suivantes
+
+- Je consulte le [programme des interventions](/fr/programme/).
+- Je [m'inscris à la conférence](/fr/registration/).
+- J'ai besoin de renseignements complémentaires:
+  [je contacte les organisateurs par mail](mailto:contact@lemooc.com).
 
 ----
 
-### Etes-vous intéressé ?
+## Comment participer ?
 
-Merci de remplir le formulaire ci-dessous, nous revenons vers vous dès que
-le programme est finalisés.
-
-
-<div class="well span6">
-  <form action="/feedback" method="POST">
-    <fieldset>
-      <div class="clearfix">
-        <label>Votre nom</label>
-        <input name="name" type="text">
-      </div>
-
-      <div class="clearfix">
-        <label>Votre organisation</label>
-        <input name="organisation" type="text">
-      </div>
-
-      <div class="clearfix">
-        <label>Votre adresse mail</label>
-        <input name="email" type="text">
-      </div>
-
-
-      <div class="clearfix">
-        <button type="submit" class="btn">Envoyer</button>
-      </div>
-    </fieldset>
-  </form>
-</div>
+Il reste encore des places, vous pouvez vous insrire (gratuitement) en utilisant
+[ce formulaire](/fr/registration/).
 
 <div class="clearfix"></div>
 
@@ -101,51 +78,35 @@ le programme est finalisés.
 
   <hr>
 
-  <a name="news"></a>
-  <h3>Le MOOC News</h3>
+  <h2>Le MOOC News</h2>
 
-  <div class="news_item">
-    <h4>Changement d'amphi</h4>
+  {% for post in posts %}
+    <div class="news-item">
+      <h4>{{ post.title }}</h4>
 
-    <div class="pub_date">14 mai 2013</div>
+      <div class="pub-date">{{ post.date }}</div>
 
-    <p>
-      Nous avons déjà 150 pré-inscrits au workshop. Pour faire face à la demande, nous avons décidé de prendre un
-      ampli plus grand (250 places au lieu de 90). N'hésitez pas à vous inscrire et à faire passer l'information à
-      vos contacts.
-    </p>
-    <p>
-      Consultez les <a href="/fr/lieu/">Détails pratiques</a>.
-    </p>
-  </div>
+      {{ post.html|safe }}
+    </div>
+  {% endfor %}
 
-  <div class="news_item">
-    <h4>Programme préliminaire</h4>
+  <hr>
+  <h2>Derniers inscrits</h2>
 
-    <div class="pub_date">26 Mars 2013</div>
+  {% from "_macros.html" import m_participant %}
 
-    <p>
-      Une première <a href="/fr/programme/">ébauche de programme</a> a été
-    publiée.
-    </p>
-  </div>
+  {% for reg in regs %}
+    {% if loop.index0 % 3 == 0 %}
+    <hr>
+    <div class="row">
+    {% endif %}
 
-  <div class="news_item">
-    <h4>Date et lieu confirmés pour Le MOOC 2013</h4>
+    {{ m_participant(reg) }}
 
-    <div class="pub_date">25 Mars 2013</div>
-
-    <p>
-      Le workshop aura bien lieu le 30 mai à l'Université Paris Diderot. </p>
-  </div>
-
-  <div class="news_item">
-    <h4>Announcing Le MOOC 2013</h4>
-
-    <div class="pub_date">Feb 04, 2013</div>
-
-    <p>
-      This website is live. </p>
+    {% if loop.index0 % 3 == 2 and not loop.last %}
+    </div>
+    {% endif %}
+  {% endfor %}
   </div>
 
 {% endblock %}

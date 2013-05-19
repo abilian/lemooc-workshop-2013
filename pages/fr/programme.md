@@ -1,7 +1,5 @@
 title: Programme
 
-### Programme
-
 Le workshop sera organisé en 4 parties couvrant ainsi les différentes dimensions des MOOC.
 
 Nous sommes encore en attente de confirmation d'un certain nombre d'intervenants sollicités.
@@ -10,7 +8,7 @@ Voici les grandes lines des interventions prévues (sous réserve de modificatio
 
 <hr>
 
-#### 30 mai 2013, Matin
+### 30 mai 2013, Matin
 
 9h: accueil / café
 
@@ -33,7 +31,7 @@ Voici les grandes lines des interventions prévues (sous réserve de modificatio
 
 12h30: pause déjeuner
 
-#### 30 mai 2013, Après-midi
+### 30 mai 2013, Après-midi
 
 14h: **aspects technologiques**
 

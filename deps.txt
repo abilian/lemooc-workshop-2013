@@ -1,5 +1,9 @@
-Flask-SQLAlchemy
 pytest
+Flask-SQLAlchemy
+Flask-Bootstrap
+Flask-Admin
+Flask-Login
+
 Babel==0.9.6
 Flask==0.9
 Flask-Assets==0.8

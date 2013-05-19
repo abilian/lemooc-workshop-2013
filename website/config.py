@@ -16,3 +16,11 @@ SECRET_KEY = "CHANGEME"
 
 REDIRECTS = {
 }
+
+SQLALCHEMY_DATABASE_URI = "sqlite:///../data/lemooc.db"
+SQLALCHEMY_ECHO = False
+
+try:
+  from local_config import *
+except:
+  pass

@@ -1,6 +1,4 @@
-Title: Lieux
-
-### Lieu
+title: Lieu
 
 <b>Attention, changement d'amphi et de lieu!</b>
 

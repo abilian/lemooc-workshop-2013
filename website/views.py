@@ -1,3 +1,4 @@
+# coding=utf-8
 from StringIO import StringIO
 import csv
 import datetime
@@ -17,6 +18,10 @@ from .pages import get_posts, get_publications, flatpages, get_pages
 #
 # Filters
 #
+from website.forms import RegistrationForm
+from website.models import Registration, db
+
+
 @app.template_filter()
 def to_rfc2822(dt):
   if not dt:
@@ -71,7 +76,16 @@ def home_en():
 @app.route('/fr/')
 def home_fr():
   template = "home_fr.html"
-  return render_template(template)
+  posts = get_posts()
+  regs = Registration.query.order_by(Registration.date.desc()).limit(9).all()
+  return render_template(template, posts=posts, regs=regs)
+
+
+@app.route('/fr/news/')
+def news_fr():
+  template = "news_fr.html"
+  posts = get_posts()
+  return render_template(template, posts=posts)
 
 
 @app.route('/fr/<path:path>/')
@@ -112,43 +126,31 @@ def feedback():
   return redirect(url_for("home"))
 
 
-@app.route('/register', methods=['POST'])
+@app.route('/fr/registration/')
+def registration_form():
+  form = RegistrationForm()
+  return render_template("registration_fr.html", form=form)
+
+
+@app.route('/fr/registration/', methods=['POST'])
 def register():
-  email = request.form.get('email')
-  name = request.form.get('name')
-  organisation = request.form.get('organisation')
-  url = request.form.get('url')
-
-  if not email or not name or not organisation:
-    flash("Some data were missing", "error")
+  form = RegistrationForm()
+  if not form.validate():
+    flash(u"Veuillez corriger les erreurs ci-dessous.", "error")
+    return render_template("registration_fr.html", form=form)
   else:
-    flash("Thank you for your feedback", "success")
-
-    csvfile = open("../feedback.csv", "a+")
-    writer = csv.writer(csvfile)
-    row = [email, name, organisation, str(datetime.datetime.utcnow())]
-    row = [ x.encode("utf8") for x in row ]
-    writer.writerow(row)
-    csvfile.close()
-
-  return redirect(url_for("home"))
+    registration = Registration()
+    form.populate_obj(registration)
+    db.session.add(registration)
+    db.session.commit()
+    flash(u"Votre inscription a bien été prise en compte.", "success")
+    return redirect(url_for("home"))
 
 
-@app.route('/news/')
-def news():
-  posts = get_posts()
-  page = {'title': 'News'}
-  return render_template("news.html", **locals())
-
-
-@app.route('/news/<path:slug>/')
-def post(slug):
-  page = flatpages.get("news/" + slug)
-  if not page:
-    return redirect(url_for("news"))
-
-  recent_posts = get_posts()
-  return render_template("post.html", **locals())
+@app.route('/fr/participants/')
+def participants():
+  regs = Registration.query.order_by(Registration.date.desc()).all()
+  return render_template("participants_fr.html", regs=regs)
 
 
 # Aux

@@ -1,50 +1,83 @@
 #!/usr/bin/env python2.7
+# coding: utf-8
+from datetime import datetime
 
-from argh import ArghParser
+from os import mkdir
+from os.path import exists
+import csv
+
+from flask.ext.script import Manager
+
 from website.application import setup_app, app
+from website.models import db, Registration
 
 
-###############################################################################
-# Commands
+def create_app():
+  setup_app(app)
+  return app
 
-# Not used (yet?)
-def post(section, title=None, filename=None):
-  """ Create a new empty post.
+manager = Manager(create_app)
+
+
+@manager.shell
+def make_shell_context():
   """
-  if not os.path.exists(os.path.join(FLATPAGES_ROOT, section)):
-    raise CommandError(u"Section '%s' does not exist" % section)
-  post_date = datetime.datetime.today()
-  title = unicode(title) if title else "Untitled Post"
-  if not filename:
-    filename = u"%s.md" % slugify(title)
-  year = post_date.year
-  pathargs = [section, str(year), filename, ]
-  filepath = os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                          FLATPAGES_ROOT, '/'.join(pathargs))
-  if os.path.exists(filepath):
-    raise CommandError("File %s exists" % filepath)
-  content = '\n'.join([
-    u"title: %s" % title,
-    u"date: %s" % post_date.strftime("%Y-%m-%d"),
-    u"published: false\n\n",
-  ])
-  try:
-    codecs.open(filepath, 'w', encoding='utf8').write(content)
-    print(u'Created %s' % filepath)
-  except Exception, error:
-    raise CommandError(error)
+  Updates shell. (XXX: not sure what this does).
+  """
+  return dict(app=app, db=db)
 
 
+@manager.command
+def dump_routes():
+  """
+  Dump all the routes declared by the application.
+  """
+  for rule in app.url_map.iter_rules():
+    print rule
+
+
+@manager.command
+def load_data():
+  feedback = csv.reader(open("feedback.csv"))
+  for row in feedback:
+    row = map(lambda x: unicode(x, "utf8"), row)
+    date = datetime.strptime(row[3], "%Y-%m-%d %H:%M:%S.%f")
+    reg = Registration(email=row[0],
+                       first_name=u"",
+                       last_name=row[1],
+                       organization=row[2],
+                       date=date)
+    db.session.add(reg)
+  db.session.commit()
+
+
+@manager.command
+def create_db():
+  if not exists("data"):
+    mkdir("data")
+
+  with app.app_context():
+    db.create_all()
+
+
+@manager.command
+def drop_db():
+  """
+  Drop the DB.
+  """
+  # TODO: ask for confirmation.
+  with app.app_context():
+    db.drop_all()
+
+
+@manager.command
 def serve(server='0.0.0.0', port=7100):
   """ Serves this site.
   """
-  setup_app(app)
   debug = app.config['DEBUG'] = app.debug = True
   #asset_manager.config['ASSETS_DEBUG'] = debug
   app.run(host=server, port=port, debug=debug)
 
 
 if __name__ == '__main__':
-  parser = ArghParser()
-  parser.add_commands([serve, post])
-  parser.dispatch()
+  manager.run()

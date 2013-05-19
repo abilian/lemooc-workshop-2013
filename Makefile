@@ -13,4 +13,5 @@ push:
 clean:
 	rm -f *.pyc */*.pyc */*/*.pyc
 	rm -rf *.egg *.egg-info
+	rm -rf dist
 

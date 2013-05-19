@@ -1,0 +1,24 @@
+{% extends "_base_fr.html" %}
+
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block main %}
+
+  <h2>Inscription / confirmation d'inscription</h2>
+
+  <p>
+    Nous demandons aux personnes qui se sont préinscrites de confirmer
+    leur inscription si elles comptent toujours venir, ceci afin d'optimiser
+    la logistique (pauses café, etc.).
+  </p>
+
+  <p>
+    Si vous ne vous êtes pas préinscrit, il reste encore des places.
+    Dépêchez-vous de le faire, notre amphi est limité à 250 places !
+  </p>
+
+  <hr>
+
+  {{ wtf.quick_form(form) }}
+
+{% endblock %}

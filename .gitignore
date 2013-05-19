@@ -3,6 +3,7 @@
 .tox
 
 feedback.csv
+local_config.py
 
 *.pyc
 
