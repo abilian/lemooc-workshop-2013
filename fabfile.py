@@ -1,6 +1,5 @@
 from fabric.api import *
 
-# the user to use for the remote commands
 from fabtools import require
 from fabtools.python import virtualenv
 import time
@@ -8,7 +7,7 @@ import time
 # Config
 env.user = 'fermigier'
 env.group = 'fermigier'
-env.hosts = ['www.lemooc.com']
+env.hosts = ['dedibox']
 
 
 env.app_name = local('python setup.py --name', capture=True).strip()
