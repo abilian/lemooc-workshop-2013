@@ -10,7 +10,7 @@ ou 2 rue Marguerite Duras 75013 Paris
 Métro/RER: "Bibliotthèque François Mitterand".
 
 Plus d'information sur le site de Paris 7:
-<http://www.univ-paris-diderot.fr/sc/site.php?bc=PRG&np=bat_halle_bis>
+<http://www.univ-paris-diderot.fr/sc/site.php?bc=implantations&np=HALLE>
 
 [Plan Google Map](https://maps.google.com/maps?q=16+Rue+Fran%C3%A7oise+Dolto,+Universit%C3%A9+Paris+Diderot,+75013+Paris,+%C3%8Ele-de-France,+France&hl=en&ie=UTF8&geocode=FUwS6QIdDlckAA&hnear=16+Rue+Fran%C3%A7oise+Dolto,+75013+Paris,+%C3%8Ele-de-France,+France&t=m&z=16)
 

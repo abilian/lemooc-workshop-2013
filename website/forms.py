@@ -1,8 +1,16 @@
 # coding=utf-8
+import re
 
 from flask.ext.wtf import Form
 from wtforms import TextField
 from wtforms.validators import Length, Email, URL
+
+
+class URLOrEmpty(URL):
+  def __call__(self, form, field):
+    if not field.data:
+      return
+    return super(URLOrEmpty, self).__call__(form, field)
 
 
 class PreRegistrationForm(Form):
@@ -25,7 +33,7 @@ class RegistrationForm(Form):
   organization = TextField(u"Organisation / Institution",
                            validators=[Length(min=1, max=200, message=msg)])
 
-  url = TextField(u"URL",
+  url = TextField(u"URL (de votre organisation, ou à défaut de votre site perso)",
                   validators=[
                     Length(max=200, message=msg),
-                    URL()])
+                    URLOrEmpty()])
