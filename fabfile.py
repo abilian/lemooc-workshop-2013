@@ -63,6 +63,7 @@ def refresh_uwsgi():
 @task
 def pack():
   # create a new source distribution as tarball
+  local('rm -rf dist')
   local('python setup.py sdist --formats=gztar', capture=False)
 
 

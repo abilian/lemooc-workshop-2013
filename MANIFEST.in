@@ -1,3 +1,4 @@
-include *.md *.txt *.ini *.py
+include *.md *.txt *.ini *.py *.pdf
 recursive-include docs *
+recursive-include website/static *
 
