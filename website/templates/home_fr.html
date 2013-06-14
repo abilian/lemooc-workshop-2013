@@ -1,6 +1,13 @@
 {% extends "_base_fr.html" %}
 
 {% block main %}
+
+<div class="alert alert-block alert-info">
+  Le workshop est terminé, vous pouvez à présent consulter un
+  <a href="/fr/compte-rendu/" style="text-decoration: underline;">compte-rendu synthétique des présentations, ainsi
+  que les transparents et les vidéos</a>.
+</div>
+
   {% filter markdown %}
 
 <a name="about"></a>
@@ -70,10 +77,9 @@ l'objet de débats et réflexions.
 
 Le workshop est à présent terminé, les inscriptions sont closes.
 
-Vous pouvez consulter une partie des transparents des présentations (et prochainement, tous les transparents ainsi que les vidéos des interventions) sur la [page du programme](/fr/programme/)
+Vous pouvez consulter le compte-rendu des présentations et des débats, ainsi que les transparents et les vidéos des intervenats,
+sur la [page du compte-rendu](/fr/compte-rendu/)
 
-<!-- Pour être prévenu des prochains événements (mise en ligne de documents, conférences...)
-vous pouvez vous [abonner à la newsletter](). -->
 
 <div class="clearfix"></div>
 

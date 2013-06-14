@@ -1,5 +1,9 @@
 title: Programme
 
+<div class="alert alert-block alert-info">
+  Le workshop est terminé, vous pouvez consulter les transparents et les vidéos des présentations ci-dessous.
+</div>
+
 Le workshop a été organisé en 4 parties couvrant ainsi les différentes dimensions des MOOC.
 
 <hr>
@@ -15,6 +19,8 @@ Le workshop a été organisé en 4 parties couvrant ainsi les différentes dimen
 - Lancelot Pecquet ([Will Strategy](http://willstrategy.com/)): *les modèles économiques des MOOC*.
 
     *Après un rappel de quelques principes des MOOCs, cet exposé se concentrera sur les questions économiques, financières et stratégiques en adoptant les différents points de vue de l'étudiant, de l'enseignant, de l'établissement (public ou privé) et de l'Etat.*
+
+    <i class="icon-picture"></i> [Slides de Lancelot Pecquet (PDF)](/static/pdf/lemooc2013-willstrategy-pecquet.pdf)
 
     <i class='icon-play'></i> [Video](http://www.irill.org/videos/mooc-2013/Lancelot_Pecquet-les_modeles_economiques_des_MOOC.webm)
 
